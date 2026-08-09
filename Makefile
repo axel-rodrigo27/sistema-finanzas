@@ -1,6 +1,6 @@
 .PHONY: backend frontend
 backend:
-	docker compose up escape-room
+	docker compose up sistema-finanzas
 frontend:
 	docker compose up frontend
 db:
