@@ -64,6 +64,33 @@ Sección dedicada al dinero que otros le deben al negocio (clientes, ventas a cr
 
 ---
 
+## 🚀 Endpoints de la API REST (v1)
+
+| Módulo | Método | Endpoint | Descripción |
+| :--- | :--- | :--- | :--- |
+| **Usuarios** | `POST` | `/api/v1/usuarios/registro` | Registrar un nuevo usuario |
+| | `POST` | `/api/v1/usuarios/login` | Iniciar sesión |
+| | `GET` | `/api/v1/usuarios/perfil` | Obtener perfil del usuario |
+| | `PUT` | `/api/v1/usuarios/perfil` | Modificar datos del perfil |
+| | `DELETE` | `/api/v1/usuarios/perfil` | Eliminar la cuenta |
+| **Inicio** | `GET` | `/api/v1/inicio/recientes` | Minitabla con los 3 registros recién añadidos |
+| **Movimientos** | `GET` | `/api/v1/movimientos` | Listar todos los ingresos y gastos |
+| *(Ingresos / Gastos)* | `GET` | `/api/v1/movimientos/:id` | Ver detalle de un movimiento |
+| | `POST` | `/api/v1/movimientos` | Crear ingreso o gasto (desde Inicio, Ingresos o Gastos) |
+| | `PUT` | `/api/v1/movimientos/:id` | Editar ingreso o gasto |
+| | `DELETE` | `/api/v1/movimientos/:id` | Eliminar ingreso o gasto |
+| **Deudas** | `GET` | `/api/v1/cuentas` | Listar todas las deudas y cobros |
+| | `GET` | `/api/v1/cuentas/pendientes` | Listar deudas activas (`estado = 1`) |
+| | `GET` | `/api/v1/cuentas/historial` | Listar cuentas saldadas (`estado = 2`) |
+| | `POST` | `/api/v1/cuentas` | Crear deuda o cobro pendiente |
+| | `PUT` | `/api/v1/cuentas/:id` | Editar datos de la cuenta |
+| | `PATCH` | `/api/v1/cuentas/:id/saldar` | Pasar de PENDIENTE (`1`) a SALDADO (`2`) |
+| | `DELETE` | `/api/v1/cuentas/:id` | Eliminar registro de deuda |
+| **Categorías** | `GET` | `/api/v1/categorias` | Obtener catálogo de categorías |
+| **Estadísticas** | `GET` | `/api/v1/estadisticas/resumen` | Datos para generar los gráficos y balances |
+
+---
+
 ## 📌 Próximos Pasos (En Desarrollo)
 
 * [ ] Implementación de la arquitectura de Base de Datos relacional.
