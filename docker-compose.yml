@@ -1,0 +1,38 @@
+services:
+  sistema-finanzas:
+    build: ./backend # Buildear el Dockerfile de esta carpeta (.)
+    image: backend # Ponele "backend" de nombre a la imagen
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    command: npm run dev  
+    environment:
+      DB_HOST: "db"
+      DB_PORT: "5432"
+      DB_USER: "backend_user"
+      DB_PASS: "password-super-secreta"
+      DB_NAME: "sistema_finanzas_db"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+  db:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "backend_user"
+      POSTGRES_PASSWORD: "password-super-secreta"
+      POSTGRES_DB: "sistema_finazas_db"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./backend/app/db/schemas.sql:/docker-entrypoint-initdb.d/01-schemas.sql:ro
+      - ./backend/app/db/seeds.sql:/docker-entrypoint-initdb.d/02-seeds.sql:ro
+  frontend:
+    build: ./frontend
+    image: frontend
+    ports:
+      - "80:80" 
+    volumes:
+      # conecto mi front con el del contenedor para que se actualize en vivo
+      - ./frontend:/usr/share/nginx/html 
