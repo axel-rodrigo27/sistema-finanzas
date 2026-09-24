@@ -1,10 +1,7 @@
 -- 1. TABLA DE USUARIOS
 CREATE TABLE usuarios (
     id_usuario SERIAL PRIMARY KEY,
-    correo VARCHAR(100) NOT NULL,
-    nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL,
-    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    correo VARCHAR(100) NOT NULL UNIQUE
 );
 
 -- 2. TABLA DE CATEGORÍAS (Catálogo para Ingresos, Gastos y Deudas)
@@ -28,7 +25,7 @@ INSERT INTO estado_cuenta (id_estado, nombre_estado) VALUES
 CREATE TABLE movimientos (
     id_movimiento SERIAL PRIMARY KEY,
     id_usuario INT REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
-    tipo VARCHAR(15) NOT NULL, -- 'GANANCIA' o 'GASTO'
+    tipo VARCHAR(15) NOT NULL, -- 'ingreso' o 'GASTO'
     monto DECIMAL(12, 2) NOT NULL,
     id_categoria INT REFERENCES categorias(id_categoria),
     descripcion TEXT,
