@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso al Sistema</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <style>
+    .box { border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+  </style>
 </head>
 <body>
-    <h1>Hola!! este es el inicio del proyecto!! ;)</h1>
+
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-4-desktop is-6-tablet">
+            
+            <div class="box">
+              <h1 class="title has-text-centered is-4">💰 Sistema de Finanzas</h1>
+              <p class="subtitle has-text-centered is-6 mb-4">Ingresá tu correo electrónico para ingresar</p>
+
+              <form id="form-acceso">
+                <div class="field">
+                  <label class="label">Correo Electrónico</label>
+                  <div class="control">
+                    <input type="email" id="correo-input" class="input" placeholder="ejemplo@correo.com" required>
+                  </div>
+                </div>
+
+                <p id="mensaje-error" class="help is-danger my-2 has-text-centered"></p>
+
+                <div class="field mt-4">
+                  <button type="submit" class="button is-primary is-fullwidth">
+                    Continuar
+                  </button>
+                </div>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="./js/index.js"></script>
 </body>
 </html>

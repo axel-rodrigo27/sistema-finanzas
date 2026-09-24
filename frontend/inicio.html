@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - Control de Gastos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+</head>
+<body>
+
+  <!-- NAVBAR / ENCABEZADO -->
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="container is-flex is-justify-content-space-between is-align-items-center px-4">
+      <div class="navbar-brand">
+        <span class="navbar-item has-text-weight-bold is-size-4">
+          💰 MiControl
+        </span>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <!-- BOTÓN CERRAR SESIÓN -->
+            <button id="btn-cerrar-sesion" type="button" class="button is-danger is-light">
+              Cerrar Sesión
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="section">
+    <div class="container">
+      
+      <h1 id="saludo" class="title is-2">¡Hola, Usuario!</h1>
+
+      <!-- TARJETAS DE RESUMEN -->
+      <div class="columns is-desktop my-4">
+        <div class="column">
+          <div class="box">
+            <p class="heading">Total Ingresos</p>
+            <p id="total-ingresos" class="title is-3 has-text-success">$ 0.00</p>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <p class="heading">Total Gastos</p>
+            <p id="total-gastos" class="title is-3 has-text-danger">$ 0.00</p>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <p class="heading">Balance Total</p>
+            <p id="total-balance" class="title is-3 has-text-link">$ 0.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLA DE MOVIMIENTOS -->
+      <div class="box">
+        <h3 class="subtitle is-4">Últimos Movimientos</h3>
+        <div class="table-container">
+          <table class="table is-fullwidth is-striped is-hoverable">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Monto</th>
+                <th>Categoría</th>
+                <th>Descripción</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-movimientos">
+              <!-- Se llena con JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- MODAL DE CONFIRMACIÓN DE CERRAR SESIÓN -->
+<div id="modal-cerrar-sesion" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Cerrar Sesión</p>
+      <button id="btn-cancelar-modal-x" class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body has-text-centered py-5">
+      <p class="is-size-5">¿Estás seguro de que deseas salir del sistema?</p>
+    </section>
+    <footer class="modal-card-foot is-justify-content-center" style="gap: 20px;">
+      <button id="btn-confirmar-salir" class="button is-danger">Sí, salir</button>
+      <button id="btn-cancelar-modal" class="button">Cancelar</button>
+    </footer>
+  </div>
+</div>
+  <script src="./js/inicio.js"></script>
+</body>
+</html>
