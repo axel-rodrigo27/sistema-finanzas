@@ -11,7 +11,7 @@ services:
       DB_HOST: "db"
       DB_PORT: "5432"
       DB_USER: "backend_user"
-      DB_PASS: "password-super-secreta"
+      DB_PASSWORD: "password-super-secreta"
       DB_NAME: "sistema_finanzas_db"
     volumes:
       - ./backend:/app
@@ -23,7 +23,7 @@ services:
     environment:
       POSTGRES_USER: "backend_user"
       POSTGRES_PASSWORD: "password-super-secreta"
-      POSTGRES_DB: "sistema_finazas_db"
+      POSTGRES_DB: "sistema_finanzas_db"
     volumes:
       - ./data:/var/lib/postgresql/data
       - ./backend/app/db/schemas.sql:/docker-entrypoint-initdb.d/01-schemas.sql:ro
